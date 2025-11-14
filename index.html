@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="16x16" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="stylesheet" href="todo.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>TO DO APP</title>
+    <style>
+            
+        
+        #navbtn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 2;
+            padding: 10px 15px;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #navMenu {
+            position: fixed;
+            right: 0;
+            top: 0;
+            width: 0;
+            height: 100%;
+            overflow: hidden;
+            background-color: #d9d9d9;
+            transition: all 0.3s ease;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 50px;
+        }
+
+        #clsBtn {
+            align-self: flex-end;
+            margin: 10px;
+            padding: 5px 10px;
+            background: #333;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #navMenu a {
+            text-decoration: none;
+            color: black;
+            font-size: 18px;
+            margin: 10px 0;
+            transition: color 0.2s;
+        }
+
+        #navMenu a:hover {
+            color: #0077ff;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <section>
+        <div class="container">
+            <h1>TO DO APP</h1>
+            <div class="task-add">
+                <input type="text" id="task-input" placeholder="Add a new task...">
+                <button id="add-task-btn"><i class="fa fa-plus"></i></button>
+            </div>
+            <div class="clearTask">
+                <button id="clearTasks">Clear All</button>
+            </div>
+            <div class="tasks">
+                <div class="task-list">
+                    <h4>Incomplete tasks</h4>
+                    <p id='noTasksMessage'> No task added here.</p>
+                    <p id="task-list"></p>
+                </div>
+                <!-- <div id="complete-task">
+                    <h4>Complete tasks</h4>
+                    <p id='noTasksCompleteMessage'> No task added here.</p>
+                </div> -->
+            </div>
+            <div id="nav">
+                <button id="navbtn">=</button>
+                <div id="navMenu">
+                    <button id="clsBtn">X</button>
+                    <a href="">Home</a>
+                    <a href="">Home</a>
+                    <a href="">Home</a>
+                    <a href="">Home</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="todo.js"></script>
+    <script>
+        let navMenu = document.getElementById('navMenu');
+        let nav = document.getElementById('nav');
+        let navbtn = document.getElementById('navbtn');
+        let clsBtn = document.getElementById('clsBtn');
+
+        navbtn.addEventListener('click', ()=>{
+            navMenu.style.width = '100%';
+            navbtn.style.display = "none";
+
+        });
+        clsBtn.addEventListener('click', ()=>{
+            navMenu.style.width = '0';
+            navbtn.style.display = 'block'
+        });
+
+
+    </script>
+</body>
+
+</html>
